@@ -11,7 +11,9 @@
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="nav navbar-nav">
 					<li class="nav-item nav-link-hover" id="home-navbar-link"><a class="nav-link " href="home.php">Home</a></li>
-               <li class="nav-item nav-link-hover" id="add-position-navbar-link"><a class="nav-link " href="add-position-page.php">Add Position</a></li>
+               		<li class="nav-item nav-link-hover" id="add-position-navbar-link"><a class="nav-link " href="add-position-page.php">Add Position</a></li>
+               		<li class="nav-item nav-link-hover" id="test-navbar-link"><a class="nav-link " href="test.php">Test</a></li>
+               	</ul>
 			</div>
 		</nav>
 	</div>

@@ -41,6 +41,8 @@ function doesCompanyExist($companyName) {
 
   $sql->execute();
 
+  echo $sql->rowCount();
+
   if ($sql->rowCount() == 1) {
     return true;
   } else {
@@ -65,6 +67,10 @@ function getNewestCompanyID() {
   $sql->execute;
   $result = $sql->fetch(PDO::FETCH_ASSOC);
   return $result['id'];
+}
+
+function getCompanyID($companyName) {
+     
 }
 
 
