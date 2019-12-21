@@ -14,20 +14,21 @@ function dbConnect() {
   }
 }
 
-function getAllTableData($tableName, $sortColumn) {
+function getAllCompaniesData() {
   $pdo = dbConnect();
-  $sql = $pdo->prepare('SELECT * FROM :table ORDER BY :column');
-
-  $tableName = filter_var($tableName, FILTER_SANITIZE_STRING);
-  $sortColumn = filter_var($sortColumn, FILTER_SANITIZE_STRING);
-
-  $sql->bindParam(':table', $tableName, PDO::PARAM_STR);
-  $sql->bindParam(':column', $sortColumn, PDO::PARAM_STR);
-
+  $sql = $pdo->prepare('SELECT * FROM Companies ORDER BY name ASC');
   $sql->execute();
-
   return $sql;
 }
+
+function getSelectOption($value, $display) {
+  return "<option value=\"$value\">$display</option>";
+}
+
+
+
+
+
 
 
 ?>
