@@ -5,7 +5,11 @@
 // check if post was sent
 if (isset($_POST['company'])) {
 
-  insertPosition(
+  // check if company exists in database
+  if (doesCompanyExist($_POST['company'])) {
+
+    // insert position
+    insertPosition(
     $_POST['company'], 
     $_POST['position'], 
     $_POST['date'], 
@@ -19,22 +23,42 @@ if (isset($_POST['company'])) {
     $_POST['notes']
   );
 
-  // check if company exists in database
-  if (doesCompanyExist($_POST['company'])) {
-
-    // insert position
-
+    // get position's id
+    $positionID = getNewestPositionID();
 
     // go to the new positions page
-
-
+    header('Location: position.php?positionID=' . $positionID);
+    exit;
 
   } else {
 
     // insert company into database
+    insertCompany($_POST['company']);
+
     // get the id of the new company
+    $companyID = getNewestCompanyID();
+
     // insert position
-    // go to new postions page
+    insertPosition (
+      $companyID, 
+      $_POST['position'], 
+      $_POST['date'], 
+      $_POST['address1'], 
+      $_POST['address2'], 
+      $_POST['city'], 
+      $_POST['state'], 
+      $_POST['zip'], 
+      $_POST['phone'], 
+      $_POST['source'], 
+      $_POST['notes']
+    );
+
+    // get position's id
+    $positionID = getNewestPositionID();
+
+    // go to the new positions page
+    header('Location: position.php?positionID=' . $positionID);
+    exit;
   }
 }
 

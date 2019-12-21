@@ -48,6 +48,40 @@ function doesCompanyExist($companyName) {
   }
 }
 
+function insertCompany($companyName) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('INSERT INTO Companies (name) VALUES (:name)');
+  $companyName = filter_var($companyName, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':name', $companyName, PDO::PARAM_STR);
+  $sql->execute();
+
+  $sql = null;
+  $pdo = null;
+}
+
+function getNewestCompanyID() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT id FROM Companies ORDER BY id DESC LIMIT 1');
+  $sql->execute;
+  $result = $sql->fetch(PDO::FETCH_ASSOC);
+  return $result['id'];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // cmd, ctrl, a to align
 
 function insertPosition($companyID, $positionTitle, $date, $address1, $address2, $city, $state, $zip, $phone, $source, $notes) {
@@ -81,17 +115,17 @@ function insertPosition($companyID, $positionTitle, $date, $address1, $address2,
   $sql->bindParam(':notes', $notes, PDO::PARAM_STR);
 
   $sql->execute();
-
-
-
-
-
-
-
-
-
-
 }
+
+function getNewestPositionID() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT id FROM Positions ORDER BY id DESC LIMIT 1');
+  $sql->execute;
+  $result = $sql->fetch(PDO::FETCH_ASSOC);
+  return $result['id'];
+}
+
+
 
 
 
