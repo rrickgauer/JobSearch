@@ -25,6 +25,13 @@ function getSelectOption($value, $display) {
   return "<option value=\"$value\">$display</option>";
 }
 
+function getDistinctPositionNames() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT Distinct name FROM Positions ORDER BY name asc');
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
