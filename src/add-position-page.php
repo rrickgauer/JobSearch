@@ -1,20 +1,54 @@
 <?php include('functions.php'); ?>
+
+<?php
+
+// check if post was sent
+if (isset($_POST['company'])) {
+
+  insertPosition(
+    $_POST['company'], 
+    $_POST['position'], 
+    $_POST['date'], 
+    $_POST['address1'], 
+    $_POST['address2'], 
+    $_POST['city'], 
+    $_POST['state'], 
+    $_POST['zip'], 
+    $_POST['phone'], 
+    $_POST['source'], 
+    $_POST['notes']
+  );
+
+  // check if company exists in database
+  if (doesCompanyExist($_POST['company'])) {
+
+    // insert position
+
+
+    // go to the new positions page
+
+
+
+  } else {
+
+    // insert company into database
+    // get the id of the new company
+    // insert position
+    // go to new postions page
+  }
+}
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <?php include('header.php'); ?>
 
-  <!-- select2 -->
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
-
-  <!-- select2 bootstrap theme -->
-  <link href="css/select2-bootstrap4.css" rel="stylesheet" />
-
-  <!-- flatpickr -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+ 
 
   <title>Add Position</title>
 </head>
@@ -30,7 +64,7 @@
       <!-- company -->
       <div class="form-group">
         <label for="company">Company:</label>
-        <select class="form-control" id="company" name="company">
+        <select class="form-control" id="company" name="company" required>
           <?php
           $companies = getAllCompaniesData();
           while ($company = $companies->fetch(PDO::FETCH_ASSOC)) {
@@ -153,6 +187,8 @@
         <label for="notes">Notes:</label>
         <textarea class="form-control" name="notes" rows="8" cols="80"></textarea>
       </div>
+
+      <input class="btn btn-primary" type="submit" id="submit-new-position-button">
 
 
 

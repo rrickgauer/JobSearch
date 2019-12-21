@@ -10,7 +10,7 @@ function dbConnect() {
     return $pdo;
 
   } catch(PDOexception $e) {
-      return 0;
+    return 0;
   }
 }
 
@@ -30,6 +30,67 @@ function getDistinctPositionNames() {
   $sql = $pdo->prepare('SELECT Distinct name FROM Positions ORDER BY name asc');
   $sql->execute();
   return $sql;
+}
+
+function doesCompanyExist($companyName) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT id FROM Companies WHERE name=:name LIMIT 1');
+
+  $companyName = filter_var($companyName, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':name', $companyName, PDO::PARAM_STR);
+
+  $sql->execute();
+
+  if ($sql->rowCount() == 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+// cmd, ctrl, a to align
+
+function insertPosition($companyID, $positionTitle, $date, $address1, $address2, $city, $state, $zip, $phone, $source, $notes) {
+  $pdo = dbConnect();
+
+
+  $sql = $pdo->prepare('INSERT INTO Positions(company_id, title, date_applied, address1, address2, city, state, zip, phone, source_found, notes) VALUES (:company_id, :title, :date_applied, :address1, :address2, :city, :state, :zip, :phone, :source_found, :notes)');
+
+  $companyID     = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
+  $positionTitle = filter_var($positionTitle, FILTER_SANITIZE_STRING); 
+  $date          = filter_var($date, FILTER_SANITIZE_STRING);
+  $address1      = filter_var($address1, FILTER_SANITIZE_STRING);
+  $address2      = filter_var($address2, FILTER_SANITIZE_STRING);
+  $city          = filter_var($city, FILTER_SANITIZE_STRING);
+  $state         = filter_var($state, FILTER_SANITIZE_STRING);
+  $zip           = filter_var($zip, FILTER_SANITIZE_NUMBER_INT);
+  $phone         = filter_var($phone, FILTER_SANITIZE_NUMBER_INT);
+  $source        = filter_var($source, FILTER_SANITIZE_STRING);
+  $notes         = filter_var($notes, FILTER_SANITIZE_STRING);
+
+  $sql->bindParam(':company_id', $companyID, PDO::PARAM_INT);
+  $sql->bindParam(':title', $positionTitle, PDO::PARAM_STR);
+  $sql->bindParam(':date_applied', $date, PDO::PARAM_STR);
+  $sql->bindParam(':address1', $address1, PDO::PARAM_STR);
+  $sql->bindParam(':address2', $address2, PDO::PARAM_STR);
+  $sql->bindParam(':city', $city, PDO::PARAM_STR);
+  $sql->bindParam(':state', $state, PDO::PARAM_STR);
+  $sql->bindParam(':zip', $zip, PDO::PARAM_INT);
+  $sql->bindParam(':phone', $phone, PDO::PARAM_INT);
+  $sql->bindParam(':source_found', $source, PDO::PARAM_STR);
+  $sql->bindParam(':notes', $notes, PDO::PARAM_STR);
+
+  $sql->execute();
+
+
+
+
+
+
+
+
+
+
 }
 
 
