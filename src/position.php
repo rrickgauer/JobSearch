@@ -84,10 +84,6 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 						
 				</td>
 			</tr>
-
-			
-
-			
 		</table>
 
 	</div>
