@@ -106,7 +106,7 @@ if (isset($_POST['company'])) {
       <!-- position -->
       <div class="form-group">
         <label for="position">Position:</label>
-        <input type="text" class="form-control" id="position" name="position" value="">
+        <input type="text" class="form-control" id="position" name="position" required="">
       </div>
 
       <!-- date -->
@@ -118,19 +118,19 @@ if (isset($_POST['company'])) {
       <!-- address 1 -->
       <div class="form-group">
         <label for="address1">Address1:</label>
-        <input type="text" class="form-control" id="address1" name="address1" value="">
+        <input type="text" class="form-control" id="address1" name="address1">
       </div>
 
       <!-- address 2 -->
       <div class="form-group">
         <label for="address2">Address2:</label>
-        <input type="text" class="form-control" id="address2" name="address2" value="">
+        <input type="text" class="form-control" id="address2" name="address2">
       </div>
 
       <!-- city-->
       <div class="form-group">
         <label for="city">City</label>
-        <input type="text" class="form-control" id="city" name="city" value="">
+        <input type="text" class="form-control" id="city" name="city">
       </div>
 
       <!-- state -->
@@ -194,25 +194,25 @@ if (isset($_POST['company'])) {
       <!-- zip-->
       <div class="form-group">
         <label for="zip">Zip:</label>
-        <input type="number" class="form-control" id="zip" name="zip" min="1" step="1" value="">
+        <input type="number" class="form-control" id="zip" name="zip" min="1" step="1">
       </div>
 
       <!-- phone-->
       <div class="form-group">
         <label for="phone">Phone:</label>
-        <input type="number" class="form-control" id="phone" name="phone" min="1" step="1" value="">
+        <input type="number" class="form-control" id="phone" name="phone" min="1" step="1">
       </div>
 
       <!-- source found-->
       <div class="form-group">
         <label for="source">Source:</label>
-        <input type="text" class="form-control" id="source" name="source" value="">
+        <input type="text" class="form-control" id="source" name="source">
       </div>
 
       <!-- notes-->
       <div class="form-group">
         <label for="notes">Notes:</label>
-        <textarea class="form-control" name="notes" rows="8" cols="80"> </textarea>
+        <textarea class="form-control" name="notes" rows="8" cols="80"></textarea>
       </div>
 
       <!-- submit button -->

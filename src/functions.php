@@ -82,8 +82,6 @@ function getCompanyID($companyName) {
 // cmd, ctrl, a to align
 function insertPosition($companyID, $positionTitle, $date, $address1, $address2, $city, $state, $zip, $phone, $source, $notes) {
   $pdo = dbConnect();
-
-
   $sql = $pdo->prepare('INSERT INTO Positions(company_id, title, date_applied, address1, address2, city, state, zip, phone, source_found, notes) VALUES (:company_id, :title, :date_applied, :address1, :address2, :city, :state, :zip, :phone, :source_found, :notes)');
 
   $companyID     = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
@@ -119,6 +117,37 @@ function getNewestPositionID() {
   $sql->execute();
   $result = $sql->fetch(PDO::FETCH_ASSOC);
   return $result['id'];
+}
+
+function doesPositionExist($positionID) {
+  $position = getPositionData($positionID);
+
+  if ($position->rowCount() == 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function getPositionData($positionID) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT * FROM Positions WHERE id=:positionID LIMIT 1');
+  $positionID = filter_var($positionID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':positionID', $positionID, PDO::PARAM_INT);
+  $sql->execute();
+  return $sql;
+}
+
+function getFormattedPositionData($positionID) {
+  $pdo = dbConnect();
+
+  $sql = $pdo->prepare('SELECT Positions.*, Companies.name as "company_name", date_format(Positions.date_applied, "%W, %M %D, %Y") as "date_applied_display" FROM Positions LEFT JOIN Companies ON Positions.company_id = Companies.id WHERE Positions.id=:positionID GROUP BY Positions.id LIMIT 1');
+
+
+  $positionID = filter_var($positionID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':positionID', $positionID, PDO::PARAM_INT);
+  $sql->execute();
+  return $sql;
 }
 
 
