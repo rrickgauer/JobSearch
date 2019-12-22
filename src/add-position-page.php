@@ -167,13 +167,13 @@ if (isset($_POST['company'])) {
 
         <!-- city-->
         <div class="form-group col-md-6">
-          <label for="city">City</label>
+          <label for="city">City:</label>
           <input type="text" class="form-control" id="city" name="city">
         </div>
 
         <!-- state -->
         <div class="form-group col-md-3">
-          <label for="address2">State</label>
+          <label for="address2">State:</label>
           <select class="form-control" name="state" id="state">
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
