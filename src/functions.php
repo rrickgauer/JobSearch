@@ -41,7 +41,21 @@ function doesCompanyExist($companyName) {
 
   $sql->execute();
 
-  echo $sql->rowCount();
+  if ($sql->rowCount() == 1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function doesCompanyIDExist($companyID) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT id FROM Companies WHERE id=:companyID LIMIT 1');
+
+  $companyID = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':companyID', $companyID, PDO::PARAM_INT);
+
+  $sql->execute();
 
   if ($sql->rowCount() == 1) {
     return true;
@@ -143,11 +157,19 @@ function getFormattedPositionData($positionID) {
 
   $sql = $pdo->prepare('SELECT Positions.*, Companies.name as "company_name", date_format(Positions.date_applied, "%W, %M %D, %Y") as "date_applied_display" FROM Positions LEFT JOIN Companies ON Positions.company_id = Companies.id WHERE Positions.id=:positionID GROUP BY Positions.id LIMIT 1');
 
-
   $positionID = filter_var($positionID, FILTER_SANITIZE_NUMBER_INT);
   $sql->bindParam(':positionID', $positionID, PDO::PARAM_INT);
   $sql->execute();
   return $sql;
+}
+
+function getCompanyData($companyID) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT * FROM Companies WHERE id=:companyID');
+  $companyID = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':companyID', $companyID, PDO::PARAM_INT);
+  $sql->execute();
+  return $sql->fetch(PDO::FETCH_ASSOC);
 }
 
 

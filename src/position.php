@@ -35,7 +35,7 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 			<tr>
 				<th>Company</th>
 				<td>
-					<a href="companies.php?companyID=<?php echo $position['company_id']; ?>">
+					<a href="company.php?companyID=<?php echo $position['company_id']; ?>">
 						<?php echo $position['company_name']; ?>
 					</a>
 				</td>
