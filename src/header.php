@@ -17,5 +17,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
+
 <!-- personal css -->
 <link rel="stylesheet" href="css/style.css" />
