@@ -8,11 +8,12 @@ if (isset($_POST['company'])) {
   // check if company exists in database
   if (doesCompanyExist($_POST['company'])) {
 
-    echo 'exists';
+  
+    $companyID = getCompanyID($_POST['company']);
 
     // insert position
     insertPosition (
-      $_POST['company'], 
+      $companyID, 
       $_POST['position'], 
       $_POST['date'], 
       $_POST['address1'], 
@@ -29,19 +30,38 @@ if (isset($_POST['company'])) {
     $positionID = getNewestPositionID();
 
     // go to the new positions page
-    header('Location: position.php?positionID=' . $positionID);
+    header("Location: position.php?positionID=$positionID");
     exit;
 
   } else {
-
-    echo 'does not exist';
-    
-
+  
     // insert company into database
     insertCompany($_POST['company']);
 
     // get the id of the new company
-    // $companyID = getNewestCompanyID();
+    $companyID = getNewestCompanyID();
+
+    // insert the position
+    insertPosition (
+      $companyID, 
+      $_POST['position'], 
+      $_POST['date'], 
+      $_POST['address1'], 
+      $_POST['address2'], 
+      $_POST['city'], 
+      $_POST['state'], 
+      $_POST['zip'], 
+      $_POST['phone'], 
+      $_POST['source'], 
+      $_POST['notes']
+    );
+
+    // get position's id
+    $positionID = getNewestPositionID();
+
+    // go to the new positions page
+    header("Location: position.php?positionID=$positionID");
+    exit;
 
     
   }
@@ -77,12 +97,11 @@ if (isset($_POST['company'])) {
           <?php
           $companies = getAllCompaniesData();
           while ($company = $companies->fetch(PDO::FETCH_ASSOC)) {
-            echo getSelectOption($company['id'], $company['name']);
+            echo getSelectOption($company['name'], $company['name']);
           }
           ?>
         </select>
       </div>
-
 
       <!-- position -->
       <div class="form-group">
@@ -107,7 +126,6 @@ if (isset($_POST['company'])) {
         <label for="address2">Address2:</label>
         <input type="text" class="form-control" id="address2" name="address2" value="">
       </div>
-
 
       <!-- city-->
       <div class="form-group">
@@ -197,13 +215,8 @@ if (isset($_POST['company'])) {
         <textarea class="form-control" name="notes" rows="8" cols="80"> </textarea>
       </div>
 
+      <!-- submit button -->
       <input class="btn btn-primary" type="submit" id="submit-new-position-button">
-
-
-
-
-
-
 
     </form>
   </div>
