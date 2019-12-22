@@ -8,7 +8,7 @@ if (isset($_POST['company'])) {
   // check if company exists in database
   if (doesCompanyExist($_POST['company'])) {
 
-  
+
     $companyID = getCompanyID($_POST['company']);
 
     // insert position
@@ -34,7 +34,7 @@ if (isset($_POST['company'])) {
     exit;
 
   } else {
-  
+
     // insert company into database
     insertCompany($_POST['company']);
 
@@ -77,7 +77,7 @@ if (isset($_POST['company'])) {
 <head>
   <?php include('header.php'); ?>
 
- 
+
 
   <title>Add Position</title>
 </head>
@@ -106,7 +106,22 @@ if (isset($_POST['company'])) {
       <!-- position -->
       <div class="form-group">
         <label for="position">Position:</label>
-        <input type="text" class="form-control" id="position" name="position" required="">
+        <select class="form-control" id="position" name="position" required">
+          
+          <?php
+
+          // get the previous recorded position names
+          $positionNames = getDistinctPositionNames();
+
+          // print them to a select input
+          while ($positionName = $positionNames->fetch(PDO::FETCH_ASSOC)) {
+            echo getSelectOption($positionName['title'], $positionName['title']);
+          }
+
+          ?>
+
+        </select>
+        
       </div>
 
       <!-- date -->
@@ -226,6 +241,14 @@ if (isset($_POST['company'])) {
 
       // set the company select input to select2
       $("#company").select2({
+        tags: true,
+        theme: 'bootstrap4',
+        placeholder: "Select a company",
+        allowClear: true
+      });
+
+      // set the position select input to select2
+      $("#position").select2({
         tags: true,
         theme: 'bootstrap4',
         placeholder: "Select a company",

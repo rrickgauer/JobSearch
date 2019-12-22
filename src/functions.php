@@ -27,7 +27,7 @@ function getSelectOption($value, $display) {
 
 function getDistinctPositionNames() {
   $pdo = dbConnect();
-  $sql = $pdo->prepare('SELECT Distinct name FROM Positions ORDER BY name asc');
+  $sql = $pdo->prepare('SELECT Distinct title FROM Positions ORDER BY title asc');
   $sql->execute();
   return $sql;
 }

@@ -23,7 +23,7 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 
 	<div class="container">
 
-		<h1>Position</h1>
+		<h1><?php echo $position['title']; ?></h1>
 
 		<table class="table">
 
@@ -90,30 +90,6 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 			
 		</table>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-
-
-
-
-
 	</div>
 
 </body>
@@ -125,14 +101,4 @@ function getPositionTableRow($header, $value) {
 	return "<tr><th>$header</th><td>$value</td></tr>";
 }
 
-
-
-
-
-
 ?>
-
-
-
-
-
