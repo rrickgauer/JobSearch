@@ -1,9 +1,5 @@
 <?php include('functions.php'); ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,13 +12,6 @@
 	<div class="container">
 
 		<h1>Company</h1>
-		
-
-
-
-
-
-
 
 	</div>
 
