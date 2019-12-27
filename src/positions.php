@@ -4,14 +4,6 @@
 
 <head>
   <?php include('header.php'); ?>
-
-  <!-- boxicons -->
-  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
-
-  <!-- bootstrap table -->
-  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" />
-
-
   <title>Positions</title>
 </head>
 
@@ -22,7 +14,7 @@
 
     <h1>Positions</h1>
 
-  <button type="button" name="button" onclick="enableCardView()" class="btn btn-primary">Card View</button>
+    <button type="button" name="button" onclick="enableCardView()" class="btn btn-primary">Card View</button>
 
 
     <table class="table table-sm table-striped" data-toggle="table" data-search="true" data-show-columns="true" data-sortable="true" data-show-columns-toggle-all="true">
@@ -38,25 +30,11 @@
       <tbody>
 
         <?php
-
-          $pdo = dbConnect();
-          $sql = $pdo->prepare('SELECT * FROM Positions');
-          $sql->execute();
-
-          while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-            echo '<tr>';
-
-            $id = $row['id'];
-            $title = $row['title'];
-
-            echo '<td>' . $row['title'] . '</td>';
-            echo '<td>' . $row['company_id'] . '</td>';
-            echo '<td>' . $row['date_applied'] . '</td>';
-            echo "<td><a href=\"position.php?positionID=$id\">Details</a></td>";
-            echo '</tr>';
-          }
-
-    ?>
+        $positions = getPositionsTableData();
+        while ($row = $positions->fetch(PDO::FETCH_ASSOC)) {
+            echo getTableRow($row);
+        }
+        ?>
 
       </tbody>
     </table>
@@ -65,21 +43,16 @@
   </div>
 
   <script>
+    function detailFormatter(index, row) {
+      return '<a href="google.com">Details</a>';
+    }
 
-  function detailFormatter(index, row) {
-    return '<a href="google.com">Details</a>';
-  }
+    var table = $("table");
 
-  var table = $("table");
-  function enableCardView() {
-    $(table).bootstrapTable('toggleView')
-  }
+    function enableCardView() {
+      $(table).bootstrapTable('toggleView')
+    }
   </script>
-
-
-
-
-
 
 
   <!-- bootstrap table -->
@@ -87,3 +60,26 @@
 </body>
 
 </html>
+
+<?php
+
+function getTableRow($row) {
+  $id = $row['id'];
+  $title = $row['title'];
+  $date = $row['date_applied'];
+  $companyName = $row['company_name'];
+  $companyID = $row['company_id'];
+
+  $positionCell = "<td>$title</td>";
+  $companyCell =  "<td><a href=\"company.php?companyID=$companyID\">$companyName</a></td>";
+  $dateCell = "<td>$date</td>";
+  $detailsCell =  "<td><a href=\"position.php?positionID=$id\">Details</a></td>";
+
+  return '<tr>' . $positionCell . $companyCell . $dateCell . $detailsCell . '</tr>';
+
+}
+
+
+
+
+?>

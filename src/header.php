@@ -20,5 +20,11 @@
 <!-- google font -->
 <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
 
+<!-- boxicons -->
+<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+
+<!-- bootstrap table -->
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" />
+
 <!-- personal css -->
 <link rel="stylesheet" href="css/style.css" />

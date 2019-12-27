@@ -99,7 +99,7 @@ function insertPosition($companyID, $positionTitle, $date, $address1, $address2,
   $sql = $pdo->prepare('INSERT INTO Positions(company_id, title, date_applied, address1, address2, city, state, zip, phone, source_found, notes) VALUES (:company_id, :title, :date_applied, :address1, :address2, :city, :state, :zip, :phone, :source_found, :notes)');
 
   $companyID     = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
-  $positionTitle = filter_var($positionTitle, FILTER_SANITIZE_STRING); 
+  $positionTitle = filter_var($positionTitle, FILTER_SANITIZE_STRING);
   $date          = filter_var($date, FILTER_SANITIZE_STRING);
   $address1      = filter_var($address1, FILTER_SANITIZE_STRING);
   $address2      = filter_var($address2, FILTER_SANITIZE_STRING);
@@ -170,6 +170,14 @@ function getCompanyData($companyID) {
   $sql->bindParam(':companyID', $companyID, PDO::PARAM_INT);
   $sql->execute();
   return $sql->fetch(PDO::FETCH_ASSOC);
+}
+
+function getPositionsTableData() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT Positions.id, Positions.title, Positions.company_id, DATE_FORMAT(Positions.date_applied, "%m-%d-%Y") as "date_applied", Companies.name as "company_name" FROM Positions LEFT JOIN Companies ON Positions.company_id=Companies.id GROUP BY Positions.id');
+  $sql->execute();
+
+  return $sql;
 }
 
 
