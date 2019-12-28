@@ -14,10 +14,10 @@
     <h1>Companies</h1>
 
     <div class="input-group input-group-lg">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class='bx bx-search'></i></span>
-      </div>
       <input id="searchInput" type="text" class="form-control" placeholder="Search" autofocus>
+      <div class="input-group-append">
+        <button id="clear-input" class="btn btn-outline-secondary" type="button"><i class='bx bx-x-circle'></i></button>
+      </div>
     </div>
 
     <div id="company-cards">
@@ -35,6 +35,14 @@
       $('#searchInput').on('keyup', function() {
         updateCompanyCards($('#searchInput').val());
       });
+
+
+      $("#clear-input").on('click', function() {
+        $("#searchInput").val('');
+        updateCompanyCards('');
+      });
+
+
     });
 
 
