@@ -82,7 +82,6 @@ if (isset($_POST['company'])) {
   <div class="container">
     <h1>Add position</h1>
 
-
     <form class="form" method="post">
       <div class="form-row">
         <!-- company -->
