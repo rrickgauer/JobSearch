@@ -2,17 +2,26 @@
 <?php $companies = getAllCompaniesPositionsCount(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <?php include('header.php'); ?>
-    <title>Companies</title>
-  </head>
-  <body>
-    <?php include('navbar.php'); ?>
-    <div class="container">
-      <h1>Companies</h1>
 
-      <div class="card-deck">
-        <?php
+<head>
+  <?php include('header.php'); ?>
+  <title>Companies</title>
+</head>
+
+<body>
+  <?php include('navbar.php'); ?>
+  <div class="container">
+    <h1>Companies</h1>
+
+    <div class="input-group input-group-lg">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class='bx bx-search'></i></span>
+      </div>
+      <input type="text" class="form-control" placeholder="Search" autofocus>
+    </div>
+
+    <div class="card-deck">
+      <?php
         $counter = 0;
 
           while ($company = $companies->fetch(PDO::FETCH_ASSOC)) {
@@ -43,9 +52,10 @@
           }
         ?>
 
-      </div>
-
     </div>
 
-  </body>
+  </div>
+
+</body>
+
 </html>

@@ -21,7 +21,8 @@
 <link href="https://fonts.googleapis.com/css?family=Heebo&display=swap" rel="stylesheet">
 
 <!-- boxicons -->
-<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+<!-- <link href='https://unpkg.com/boxicons@2.0.4/css/boxicons.min.css' rel='stylesheet'> -->
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.4/css/boxicons.min.css' rel='stylesheet'>
 
 <!-- bootstrap table -->
 <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" />
