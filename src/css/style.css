@@ -9,3 +9,36 @@ form label {
 .card {
   margin-top: 30px;
 }
+
+#company-cards .card-header {
+  border: none;
+  margin: 0;
+  padding-bottom: 0;
+  margin-right: 5px;
+}
+
+#company-cards .card-footer {
+  border: none;
+}
+
+#company-cards .card-body {
+  padding: 10px;
+}
+
+#company-cards .card-body * {
+  display: inline;
+}
+
+#company-cards .card-body .outer {
+  margin: 5px;
+}
+
+#company-cards .card-header,
+#company-cards .card-body,
+#company-cards .card-footer {
+  background-color: inherit;
+}
+
+#company-cards .card {
+  background-color: white;
+}

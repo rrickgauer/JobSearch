@@ -2,6 +2,8 @@
 
 include_once('functions.php');
 
+
+
 $companies = getAllCompaniesPositionsCountFilter($_GET['q']);
 
 echo '<div class="card-deck">';
@@ -22,11 +24,16 @@ $counter = 0;
     $count = $company['count'];
     $companyID = $company['c'];
 
-    echo "<div class=\"card\">
-      <div class=\"card-body\">
+    echo
+    "<div class=\"card\">
+      <div class=\"card-header\">
         <h4 class=\"card-title\">$companyName</h4>
-        <p class=\"card-date\">$date</p>
-        <p class=\"card-text\">Postions <span class=\"badge badge-primary\">$count</span></p>
+      </div>
+      <div class=\"card-body\">
+        <p class=\"card-text\"><span class=\"badge badge-warning outer\">Postions <span class=\"badge badge-pill badge-info\"> $count</span></span></p>
+        <p class=\"card-date\"><span class=\"badge badge-primary outer\">Activity <span class=\"badge badge-pill badge-light\"> $date</span></span></p>
+      </div>
+      <div class=\"card-footer\">
         <a href=\"company.php?companyID=$companyID\">View</a>
       </div>
     </div>";
