@@ -2743,7 +2743,7 @@
 	}[bootstrapVersion];
 	var DEFAULTS = {
 	  height: undefined,
-	  classes: 'table',
+	  classes: 'table table-bordered table-hover',
 	  theadClasses: '',
 	  rowStyle: function rowStyle(row, index) {
 	    return {};
@@ -2783,7 +2783,7 @@
 	  totalField: 'total',
 	  totalNotFilteredField: 'totalNotFiltered',
 	  dataField: 'rows',
-	  pagination: true,
+	  pagination: false,
 	  onlyInfoPagination: false,
 	  showExtendedPagination: false,
 	  paginationLoop: true,
@@ -2792,8 +2792,8 @@
 	  totalRows: 0,
 	  totalNotFiltered: 0,
 	  pageNumber: 1,
-	  pageSize: 25,
-	  pageList: [25, 50, 100],
+	  pageSize: 10,
+	  pageList: [10, 25, 50, 100],
 	  paginationHAlign: 'right',
 	  // right, left
 	  paginationVAlign: 'bottom',
@@ -2861,9 +2861,9 @@
 	    return true;
 	  },
 	  toolbar: undefined,
-	  toolbarAlign: 'right',
+	  toolbarAlign: 'left',
 	  buttonsToolbar: undefined,
-	  buttonsAlign: 'left',
+	  buttonsAlign: 'right',
 	  buttonsPrefix: CONSTANTS.classes.buttonsPrefix,
 	  buttonsClass: CONSTANTS.classes.buttons,
 	  icons: CONSTANTS.icons,
@@ -4381,7 +4381,7 @@
 	        html = [];
 	        var showSearchButton = Utils.sprintf(this.constants.html.searchButton, this.constants.buttonsClass, o.formatSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.search) : '', o.showButtonText ? o.formatSearch() : '');
 	        var showSearchClearButton = Utils.sprintf(this.constants.html.searchClearButton, this.constants.buttonsClass, o.formatClearSearch(), o.showButtonIcons ? Utils.sprintf(this.constants.html.icon, o.iconsPrefix, o.icons.clearSearch) : '', o.showButtonText ? o.formatClearSearch() : '');
-	        var searchInputHtml = "<input class=\"".concat(this.constants.classes.input, "\n        ").concat(Utils.sprintf(' %s%s', this.constants.classes.inputPrefix, o.iconSize), "\n        search input\" type=\"text\" placeholder=\"").concat(o.formatSearch(), "\">");
+	        var searchInputHtml = "<input class=\"".concat(this.constants.classes.input, "\n        ").concat(Utils.sprintf(' %s%s', this.constants.classes.inputPrefix, o.iconSize), "\n        search-input\" type=\"text\" placeholder=\"").concat(o.formatSearch(), "\">");
 	        var searchInputFinalHtml = searchInputHtml;
 
 	        if (o.showSearchButton || o.showSearchClearButton) {
