@@ -2743,7 +2743,7 @@
 	}[bootstrapVersion];
 	var DEFAULTS = {
 	  height: undefined,
-	  classes: 'table table-bordered table-hover',
+	  classes: 'table',
 	  theadClasses: '',
 	  rowStyle: function rowStyle(row, index) {
 	    return {};
@@ -2783,7 +2783,7 @@
 	  totalField: 'total',
 	  totalNotFilteredField: 'totalNotFiltered',
 	  dataField: 'rows',
-	  pagination: false,
+	  pagination: true,
 	  onlyInfoPagination: false,
 	  showExtendedPagination: false,
 	  paginationLoop: true,
@@ -2792,8 +2792,8 @@
 	  totalRows: 0,
 	  totalNotFiltered: 0,
 	  pageNumber: 1,
-	  pageSize: 10,
-	  pageList: [10, 25, 50, 100],
+	  pageSize: 50,
+	  pageList: [50, 100, 200],
 	  paginationHAlign: 'right',
 	  // right, left
 	  paginationVAlign: 'bottom',
@@ -2808,7 +2808,7 @@
 	  // Number of pages on each side (right, left) of the current page.
 	  paginationUseIntermediate: false,
 	  // Calculate intermediate pages for quick access
-	  search: false,
+	  search: true,
 	  searchOnEnterKey: false,
 	  strictSearch: false,
 	  visibleSearch: false,
@@ -2817,7 +2817,7 @@
 	  showSearchButton: false,
 	  showSearchClearButton: false,
 	  trimOnSearch: true,
-	  searchAlign: 'right',
+	  searchAlign: 'left',
 	  searchTimeOut: 500,
 	  searchText: '',
 	  customSearch: undefined,
@@ -2826,8 +2826,8 @@
 	  footerStyle: function footerStyle(row, index) {
 	    return {};
 	  },
-	  showColumns: false,
-	  showColumnsToggleAll: false,
+	  showColumns: true,
+	  showColumnsToggleAll: true,
 	  minimumCountColumns: 1,
 	  showPaginationSwitch: false,
 	  showRefresh: false,
@@ -2852,7 +2852,7 @@
 	  uniqueId: undefined,
 	  cardView: false,
 	  detailView: false,
-	  detailViewIcon: true,
+	  detailViewIcon: false,
 	  detailViewByClick: false,
 	  detailFormatter: function detailFormatter(index, row) {
 	    return '';

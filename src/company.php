@@ -66,8 +66,9 @@
 
     table.bootstrapTable({
       classes: 'table table-striped table-sm',
-      customToolbar: '#myToolbar',
     });
+
+
 
 
 
