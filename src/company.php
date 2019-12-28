@@ -19,14 +19,8 @@
 
     <div class="card">
 
-      <div id="myToolbar">
-
-        <input type="text" name="search" class="search-input form-control">
-      </div>
-
       <div class="card-header">
         <h2>Lastest positions</h2>
-
       </div>
 
       <div class="card-body">
