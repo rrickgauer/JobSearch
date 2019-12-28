@@ -33,7 +33,11 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
         Dropdown button
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
+        <!-- <a class="dropdown-item" href="#">Action</a> -->
+        <!-- Button trigger modal -->
+        <a href="#" class="dropdown-item"  data-toggle="modal" data-target="#edit-position-modal">
+          Launch demo modal
+        </a>
       </div>
     </div>
 
@@ -75,7 +79,6 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 					echo $position['city'] . ', ' . $position['state'] . ', ' . $position['zip'];
 					?>
 
-
         </td>
       </tr>
 
@@ -100,11 +103,6 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 
   </div>
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-position-modal">
-    Launch demo modal
-  </button>
-
   <!-- Modal -->
   <div class="modal fade" id="edit-position-modal" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -116,7 +114,7 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
           </button>
         </div>
         <div class="modal-body">
-          <form class="form" method="post">
+          <form class="form" method="post" action="edit-position.php">
             <!-- position -->
             <div class="form-group">
               <label for="position">Position:</label>
@@ -263,12 +261,6 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
         dateFormat: "Y-m-d",
         defaultDate: "<?php echo $position['date_applied']; ?>"
       });
-
-
-
-
-
-
 
     });
   </script>
