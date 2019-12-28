@@ -25,7 +25,7 @@ $counter = 0;
     $companyID = $company['c'];
 
     echo
-    "<div class=\"card\">
+    "<div class=\"card\" onclick=\"gotoCompany($companyID)\">
       <div class=\"card-header\">
         <h4 class=\"card-title\">$companyName</h4>
       </div>

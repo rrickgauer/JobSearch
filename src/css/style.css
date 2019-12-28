@@ -40,5 +40,10 @@ form label {
 }
 
 #company-cards .card {
-  background-color: white;
+  background-color: lightGrey;
+}
+
+#company-cards .card:hover {
+  cursor: pointer;
+  transform: scale(1.05)
 }

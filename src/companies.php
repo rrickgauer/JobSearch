@@ -50,6 +50,10 @@
       xhttp.open("GET", "get-company-cards.php?q=" + query, true);
       xhttp.send();
     }
+
+    function gotoCompany(id) {
+      window.open('company.php?companyID=' + id, '_blank');
+    }
   </script>
 
 </body>
