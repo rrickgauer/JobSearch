@@ -189,6 +189,13 @@ function getCompanyPositions($companyID) {
   return $sql;
 }
 
+function getAllCompaniesPositionsCount() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT Companies.id as c, Companies.name, COUNT(Positions.id) as count, (SELECT Positions.date_applied from Positions where Positions.company_id=c order by Positions.date_applied desc LIMIT 1) as last_date FROM Companies LEFT JOIN Positions on Companies.id=Positions.company_id GROUP BY Companies.id ORDER BY count DESC');
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
