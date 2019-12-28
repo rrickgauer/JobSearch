@@ -1,0 +1,3 @@
+add ajax to filter out search query in companies.php
+
+
