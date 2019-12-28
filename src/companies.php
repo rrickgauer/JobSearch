@@ -17,11 +17,13 @@
       <div class="input-group-prepend">
         <span class="input-group-text"><i class='bx bx-search'></i></span>
       </div>
-      <input type="text" class="form-control" placeholder="Search" autofocus>
+      <input id="searchInput" type="text" class="form-control" placeholder="Search" autofocus>
     </div>
 
-    <div class="card-deck">
-      <?php
+    <div id="company-cards">
+
+      <div class="card-deck">
+        <?php
         $counter = 0;
 
           while ($company = $companies->fetch(PDO::FETCH_ASSOC)) {
@@ -52,9 +54,33 @@
           }
         ?>
 
+      </div>
     </div>
 
   </div>
+
+  <script>
+    $(document).ready(function() {
+
+      $('#searchInput').on('keyup', function() {
+        updateCompanyCards($('#searchInput').val());
+      });
+    });
+
+
+    function updateCompanyCards(query) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          var e = this.responseText;
+          $("#company-cards").html(e);
+        }
+      };
+
+      xhttp.open("GET", "get-company-cards.php?q=" + query, true);
+      xhttp.send();
+    }
+  </script>
 
 </body>
 

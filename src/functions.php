@@ -196,6 +196,18 @@ function getAllCompaniesPositionsCount() {
   return $sql;
 }
 
+function getAllCompaniesPositionsCountFilter($query) {
+  $pdo = dbConnect();
+
+  $sql = $pdo->prepare('SELECT Companies.id as c, Companies.name, COUNT(Positions.id) as count, (SELECT Positions.date_applied from Positions where Positions.company_id=c order by Positions.date_applied desc LIMIT 1) as last_date FROM Companies LEFT JOIN Positions on Companies.id=Positions.company_id WHERE Companies.name like :query GROUP BY Companies.id ORDER BY count DESC');
+
+  $query = "$query%";
+  $query = filter_var($query, FILTER_SANITIZE_STRING);
+  $sql->bindValue(':query', $query, PDO::PARAM_STR);
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
