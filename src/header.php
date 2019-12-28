@@ -24,7 +24,11 @@
 <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 
 <!-- bootstrap table -->
-<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" />
+<!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" />
+<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script> -->
+<link rel="stylesheet" href="css/bootstrap-table.css" />
+<script src="js/bootstrap-table.js"></script>
+
 
 <!-- personal css -->
 <link rel="stylesheet" href="css/style.css" />
