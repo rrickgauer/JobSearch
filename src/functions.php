@@ -180,6 +180,15 @@ function getPositionsTableData() {
   return $sql;
 }
 
+function getCompanyPositions($companyID) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT Positions.id, Positions.title, Positions.company_id, DATE_FORMAT(Positions.date_applied, "%m-%d-%Y") as date_applied_format, Positions.date_applied FROM Positions WHERE Positions.company_id=:companyID ORDER BY date_applied desc');
+  $companyID = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':companyID', $companyID, PDO::PARAM_INT);
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
