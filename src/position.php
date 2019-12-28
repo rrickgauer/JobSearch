@@ -26,20 +26,19 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
 
   <div class="container">
 
+
     <h1><?php echo $position['title']; ?></h1>
 
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropdown button
-      </button>
+    <div class="dropdown float-right dropleft">
+      <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button>
+
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <!-- <a class="dropdown-item" href="#">Action</a> -->
-        <!-- Button trigger modal -->
-        <a href="#" class="dropdown-item"  data-toggle="modal" data-target="#edit-position-modal">
-          Launch demo modal
-        </a>
+        <a href="#" class="dropdown-item" data-toggle="modal" data-target="#edit-position-modal"><i class='bx bxs-edit'></i> Edit</a>
+        <a href="#" class="dropdown-item"><i class='bx bx-trash'></i> Delete</a>
+
       </div>
     </div>
+
 
     <table class="table">
 
