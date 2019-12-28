@@ -18,7 +18,6 @@
     <h1><?php echo $company['name']; ?></h1>
 
     <div class="card">
-
       <div class="card-header">
         <h2>Lastest positions</h2>
       </div>
@@ -36,40 +35,42 @@
           <tbody>
 
             <?php
+              // print out the positions data
               $positions = getCompanyPositions($_GET['companyID']);
               while ($position = $positions->fetch(PDO::FETCH_ASSOC)) {
-                $positionID = $position['id'];
-                echo '<tr>';
-                echo '<td>' . $position['title'] . '</td>';
-                echo '<td>' . $position['date_applied_format'] . '</td>';
-                echo "<td><a href=\"position.php?positionID=$positionID\" target=\"_blank\">Details</a></td>";
-                echo '</tr>';
+                printTableRow($position);
               }
             ?>
 
           </tbody>
         </table>
       </div>
-
     </div>
 
   </div>
 
   <script>
-    var table = $("table");
-
-    table.bootstrapTable({
+    $("table").bootstrapTable({
       classes: 'table table-striped table-sm',
     });
-
-
-
-
-
-
   </script>
-
-
 </body>
 
 </html>
+
+<?php
+
+function printTableRow($position) {
+  $positionID = $position['id'];
+
+  echo '<tr>';
+  echo '<td>' . $position['title'] . '</td>';
+  echo '<td>' . $position['date_applied_format'] . '</td>';
+  echo "<td><a href=\"position.php?positionID=$positionID\" target=\"_blank\">Details</a></td>";
+  echo '</tr>';
+}
+
+
+
+
+?>
