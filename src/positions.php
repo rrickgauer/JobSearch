@@ -69,7 +69,7 @@ function getTableRow($row) {
   $positionCell = "<td>$title</td>";
   $companyCell =  "<td><a href=\"company.php?companyID=$companyID\">$companyName</a></td>";
   $dateCell = "<td>$date</td>";
-  $detailsCell =  "<td><a href=\"position.php?positionID=$id\" target=\"_blank\">Details</a></td>";
+  $detailsCell =  "<td><a href=\"position.php?positionID=$id\" target=\"_blank\"><i class='bx bx-link-external'></i></a></td>";
 
   return '<tr>' . $positionCell . $companyCell . $dateCell . $detailsCell . '</tr>';
 
