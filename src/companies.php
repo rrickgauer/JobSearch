@@ -6,12 +6,9 @@
     <title>Companies</title>
   </head>
   <body>
+    <?php include('navbar.php'); ?>
     <div class="container">
-
-      <?php include('navbar.php'); ?>
-
       <h1>Companies</h1>
-
     </div>
 
   </body>
