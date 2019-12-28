@@ -7,22 +7,20 @@ if (isset($_POST['company'])) {
 
   // check if company exists in database
   if (doesCompanyExist($_POST['company'])) {
-
-
     $companyID = getCompanyID($_POST['company']);
 
     // insert position
     insertPosition (
-      $companyID, 
-      $_POST['position'], 
-      $_POST['date'], 
-      $_POST['address1'], 
-      $_POST['address2'], 
-      $_POST['city'], 
-      $_POST['state'], 
-      $_POST['zip'], 
-      $_POST['phone'], 
-      $_POST['source'], 
+      $companyID,
+      $_POST['position'],
+      $_POST['date'],
+      $_POST['address1'],
+      $_POST['address2'],
+      $_POST['city'],
+      $_POST['state'],
+      $_POST['zip'],
+      $_POST['phone'],
+      $_POST['source'],
       $_POST['notes']
     );
 
@@ -43,16 +41,16 @@ if (isset($_POST['company'])) {
 
     // insert the position
     insertPosition (
-      $companyID, 
-      $_POST['position'], 
-      $_POST['date'], 
-      $_POST['address1'], 
-      $_POST['address2'], 
-      $_POST['city'], 
-      $_POST['state'], 
-      $_POST['zip'], 
-      $_POST['phone'], 
-      $_POST['source'], 
+      $companyID,
+      $_POST['position'],
+      $_POST['date'],
+      $_POST['address1'],
+      $_POST['address2'],
+      $_POST['city'],
+      $_POST['state'],
+      $_POST['zip'],
+      $_POST['phone'],
+      $_POST['source'],
       $_POST['notes']
     );
 
@@ -63,7 +61,7 @@ if (isset($_POST['company'])) {
     header("Location: position.php?positionID=$positionID");
     exit;
 
-    
+
   }
 }
 
@@ -76,9 +74,6 @@ if (isset($_POST['company'])) {
 
 <head>
   <?php include('header.php'); ?>
-
-
-
   <title>Add Position</title>
 </head>
 
@@ -106,7 +101,7 @@ if (isset($_POST['company'])) {
         <!-- position -->
         <div class="form-group col-md-6">
           <label for="position">Position:</label>
-          <select class="form-control" id="position" name="position" required">
+          <select class="form-control" id="position" name="position" required>
 
             <?php
 
@@ -236,7 +231,7 @@ if (isset($_POST['company'])) {
         </div>
       </div>
 
-      
+
 
       <!-- notes-->
       <div class="form-group">
