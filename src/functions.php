@@ -226,6 +226,42 @@ function printStatesSelection($selectedState) {
   }
 }
 
+function updatePosition($positionID, $companyID, $data) {
+  $pdo = dbConnect();
+  // $sql = $pdo->prepare('INSERT INTO Positions(company_id, title, date_applied, address1, address2, city, state, zip, phone, source_found, notes) VALUES (:company_id, :title, :date_applied, :address1, :address2, :city, :state, :zip, :phone, :source_found, :notes)');
+
+  $sql = $pdo->prepare('UPDATE Positions SET title=:title, company_id=:company_id, date_applied=:date_applied, address1=:address1, address2=:address2, city=:city, state=:state, zip=:zip, phone=:phone, source_found=:source_found, notes=:notes WHERE id=:positionID');
+
+  $companyID     = filter_var($companyID, FILTER_SANITIZE_NUMBER_INT);
+  $positionTitle = filter_var($data['position'], FILTER_SANITIZE_STRING);
+  $date          = filter_var($data['date'], FILTER_SANITIZE_STRING);
+  $address1      = filter_var($data['address1'], FILTER_SANITIZE_STRING);
+  $address2      = filter_var($data['address2'], FILTER_SANITIZE_STRING);
+  $city          = filter_var($data['city'], FILTER_SANITIZE_STRING);
+  $state         = filter_var($data['state'], FILTER_SANITIZE_STRING);
+  $zip           = filter_var($data['zip'], FILTER_SANITIZE_STRING);
+  $phone         = filter_var($data['phone'], FILTER_SANITIZE_STRING);
+  $source        = filter_var($data['source'], FILTER_SANITIZE_STRING);
+  $notes         = filter_var($data['notes'], FILTER_SANITIZE_STRING);
+  $positionID    = filter_var($positionID, FILTER_SANITIZE_NUMBER_INT);
+
+
+  $sql->bindParam(':company_id', $companyID, PDO::PARAM_INT);
+  $sql->bindParam(':title', $positionTitle, PDO::PARAM_STR);
+  $sql->bindParam(':date_applied', $date, PDO::PARAM_STR);
+  $sql->bindParam(':address1', $address1, PDO::PARAM_STR);
+  $sql->bindParam(':address2', $address2, PDO::PARAM_STR);
+  $sql->bindParam(':city', $city, PDO::PARAM_STR);
+  $sql->bindParam(':state', $state, PDO::PARAM_STR);
+  $sql->bindParam(':zip', $zip, PDO::PARAM_STR);
+  $sql->bindParam(':phone', $phone, PDO::PARAM_STR);
+  $sql->bindParam(':source_found', $source, PDO::PARAM_STR);
+  $sql->bindParam(':notes', $notes, PDO::PARAM_STR);
+  $sql->bindParam(':positionID', $positionID, PDO::PARAM_INT);
+
+  $sql->execute();
+}
+
 
 
 

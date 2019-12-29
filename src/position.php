@@ -113,14 +113,12 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
           </button>
         </div>
         <div class="modal-body">
-          <form class="form" method="post" action="edit-position.php">
+          <form class="form" method="post" action="edit-position.php?positionID=<?php echo $_GET['positionID']; ?>">
             <!-- position -->
             <div class="form-group">
               <label for="position">Position:</label>
               <select class="form-control" id="position" name="position" style="width: 100%;" required>
-
                 <?php
-
                 // get the previous recorded position names
                 $positionNames = getDistinctPositionNames();
 
@@ -128,7 +126,6 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
                 while ($positionName = $positionNames->fetch(PDO::FETCH_ASSOC)) {
                   echo getSelectOption($positionName['title'], $positionName['title']);
                 }
-
                 ?>
               </select>
 
