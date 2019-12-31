@@ -2,6 +2,10 @@
 
 <?php
 
+if (isset($_POST['question']) && isset($_POST['answer'])) {
+  insertQuestion($_POST['question'], $_POST['answer']);
+}
+
 
 ?>
 
@@ -24,14 +28,6 @@
       <textarea name="answer" rows="12" class="form-control" placeholder="Answer"></textarea>
       <input type="submit" value="Submit" class="btn btn-primary">
     </form>
-
-
-
-
-
-
-
-
 
 
   </div>

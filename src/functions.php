@@ -262,6 +262,23 @@ function updatePosition($positionID, $companyID, $data) {
   $sql->execute();
 }
 
+function insertQuestion($question, $answer) {
+  $pdo = dbConnect();
+  // $sql = $pdo->prepare('UPDATE ListItems SET completed=:completed WHERE id=:id');
+  $sql = $pdo->prepare('INSERT INTO Questions (question, answer) VALUES (:question, :answer)');
+
+  // filter variables
+  $question = filter_var($question, FILTER_SANITIZE_STRING);
+  $answer = filter_var($answer, FILTER_SANITIZE_STRING);
+
+  // bind the parameters
+  $sql->bindParam(':question', $question, PDO::PARAM_STR);
+  $sql->bindParam(':answer', $answer, PDO::PARAM_STR);
+
+  // execute sql statement
+  return $sql->execute();
+}
+
 
 
 
