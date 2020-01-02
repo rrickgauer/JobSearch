@@ -78,3 +78,8 @@ form label {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.modal-header,
+.navbar {
+  background-color: #f0cf61;
+}
