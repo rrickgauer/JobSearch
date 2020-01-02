@@ -82,6 +82,8 @@ $questions = getQuestions();
 
 	<script>
 		$(document).ready(function() {
+      $("#questions-navbar-link").addClass('selected');
+
 			$('#questionSearchInput').on('keyup', function() {
 				updateQuestionTable($('#questionSearchInput').val());
 			});

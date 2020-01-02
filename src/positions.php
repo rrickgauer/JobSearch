@@ -44,6 +44,11 @@
   </div>
 
   <script>
+
+    $(document).ready(function() {
+      $("#positions-navbar-link").addClass('selected');
+    });
+
     function detailFormatter(index, row) {
       return '<a href="google.com">Details</a>';
     }

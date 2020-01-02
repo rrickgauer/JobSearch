@@ -30,6 +30,8 @@
   <script>
     $(document).ready(function() {
 
+      $("#companies-navbar-link").addClass('selected');
+
       updateCompanyCards('');
 
       $('#searchInput').on('keyup', function() {
