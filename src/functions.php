@@ -286,6 +286,18 @@ function getQuestions() {
   return $sql;
 }
 
+function searchQuestions($query) {
+  $pdo = dbConnect();
+
+  $sql = $pdo->prepare('SELECT * FROM Questions WHERE question LIKE :query ORDER BY Question ASC');
+
+  $query = "%$query%";
+  $query = filter_var($query, FILTER_SANITIZE_STRING);
+  $sql->bindValue(':query', $query, PDO::PARAM_STR);
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
