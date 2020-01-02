@@ -87,3 +87,19 @@ form label {
 .card-home .card-header {
   background-color: #f0cf61;
 }
+
+#top-navbar {
+  background-color: #f0cf61;
+}
+
+#top-navbar .nav-item:hover {
+  background-color: #f8eab9;
+}
+
+#top-navbar .selected {
+  background-color: #f8eab9;
+}
+
+#top-navbar .nav-link {
+  color: black;
+}

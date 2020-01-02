@@ -78,16 +78,20 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 
 		</div>
 
-
-
-
-
-
-
-
-
-
 	</div>
+
+  <script>
+
+  $(document).ready(function() {
+
+    $("#home-navbar-link").addClass('selected');
+
+  });
+
+  </script>
+
+
+
 </body>
 
 </html>
