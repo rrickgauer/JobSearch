@@ -27,14 +27,18 @@ $questions = getQuestions();
 
 		<h1>Questions</h1>
 
-    <div class="dropdown float-right dropleft">
-      <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" data-toggle="modal" data-target="#new-question-modal" href="#">New Question</a>
+    <div class="input-group mb-3">
+      <input id="questionSearchInput" type="text" class="form-control" placeholder="Search">
+
+      <div class="input-group-append">
+        <button class="btn btn-outline-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" data-toggle="modal" data-target="#new-question-modal" href="#">New Question</a>
+        </div>
       </div>
+
     </div>
 
-		<input id="questionSearchInput" type="text" class="form-control" placeholder="Search">
 		<table class="table table-sm table-striped">
 			<thead>
 				<tr>
@@ -82,7 +86,7 @@ $questions = getQuestions();
 
 	<script>
 		$(document).ready(function() {
-      $("#questions-navbar-link").addClass('selected');
+			$("#questions-navbar-link").addClass('selected');
 
 			$('#questionSearchInput').on('keyup', function() {
 				updateQuestionTable($('#questionSearchInput').val());
