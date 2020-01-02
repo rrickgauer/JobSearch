@@ -15,7 +15,7 @@
 
   <div class="container">
 
-    <h1><?php echo $company['name']; ?></h1>
+    <h1 class="custom-font"><?php echo $company['name']; ?></h1>
 
     <div class="card">
       <div class="card-header">

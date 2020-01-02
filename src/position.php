@@ -27,7 +27,7 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
   <div class="container">
 
 
-    <h1><?php echo $position['title']; ?></h1>
+    <h1 class="custom-font"><?php echo $position['title']; ?></h1>
 
     <div class="dropdown float-right dropleft">
       <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-vertical-rounded'></i></button>
