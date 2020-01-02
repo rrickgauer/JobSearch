@@ -298,6 +298,13 @@ function searchQuestions($query) {
   return $sql;
 }
 
+function getHomePageData() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT * FROM View_HomePage');
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
