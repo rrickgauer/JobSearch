@@ -80,7 +80,7 @@ if (isset($_POST['company'])) {
 <body>
   <?php include('navbar.php'); ?>
   <div class="container">
-    <h1>Add position</h1>
+    <h1 class="custom-font">Add position</h1>
 
     <form class="form" method="post">
       <div class="form-row">

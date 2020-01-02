@@ -3,62 +3,49 @@
 <html>
 
 <head>
-  <?php include('header.php'); ?>
-  <title>Positions</title>
+	<?php include('header.php'); ?>
+	<title>Positions</title>
 </head>
 
 <body>
-  <?php include('navbar.php'); ?>
+	<?php include('navbar.php'); ?>
 
-  <div class="container">
+	<div class="container">
 
-    <h1 class="custom-font">Positions</h1>
-
-    <button type="button" name="button" onclick="enableCardView()" class="btn btn-primary">Card View</button>
-    <a href="add-position-page.php" class="btn btn-primary">New Position</a>
+		<h1 class="custom-font">Positions</h1>
 
 
-    <table class="table table-sm table-striped" data-toggle="table" data-search="true" data-show-columns="true" data-sortable="true" data-show-columns-toggle-all="true">
-      <thead>
-        <tr>
-          <th data-field="position" data-sortable="true">Position</th>
-          <th data-field="company" data-sortable="true">Company</th>
-          <th data-field="date" data-sortable="true" data-visible="true">Date Applied</th>
-          <th data-field="details" data-sortable="true" data-visible="true">Details</th>
-        </tr>
-      </thead>
+		<div class="input-group input-group-lg">
+			<input type="text" class="form-control" placeholder="Search" autofocus>
+			<div class="input-group-append">
+				<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></button>
+				<div class="dropdown-menu">
+					<a href="add-position-page.php" class="dropdown-item"><i class='bx bx-plus'></i> New</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item"><i class='bx bx-table'></i> Table view</a>
+          <a class="dropdown-item"><i class='bx bxs-collection'></i> Card view</a>
+				</div>
+			</div>
+		</div>
 
-      <tbody>
+    <div id="positions">
+      
 
-        <?php
-        $positions = getPositionsTableData();
-        while ($row = $positions->fetch(PDO::FETCH_ASSOC)) {
-            echo getTableRow($row);
-        }
-        ?>
-
-      </tbody>
-    </table>
+    </div>
 
 
-  </div>
 
-  <script>
 
-    $(document).ready(function() {
-      $("#positions-navbar-link").addClass('selected');
-    });
 
-    function detailFormatter(index, row) {
-      return '<a href="google.com">Details</a>';
-    }
 
-    var table = $("table");
 
-    function enableCardView() {
-      $(table).bootstrapTable('toggleView')
-    }
-  </script>
+	</div>
+
+	<script>
+		$(document).ready(function() {
+			$("#positions-navbar-link").addClass('selected');
+		});
+	</script>
 </body>
 
 </html>
