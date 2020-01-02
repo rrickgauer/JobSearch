@@ -101,3 +101,11 @@ form label {
   color: black;
   font-weight: bold;
 }
+
+.card-summary i {
+  font-size: 56px;
+}
+
+.card-summary p {
+  margin-bottom: 0;
+}

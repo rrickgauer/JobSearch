@@ -20,26 +20,48 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 		<div class="card-deck">
 
 			<!-- positions count -->
-			<div class="card">
+			<div class="card card-summary">
 				<div class="card-body">
-					<h3><i class='bx bx-detail'></i> <?php echo $data['positionsCount']; ?></h3>
-					<p>Positions</p>
+					<div class="row">
+						<div class="col-3">
+							<i class='bx bx-detail'></i>
+						</div>
+						<div class="col-9">
+							<h3><?php echo $data['positionsCount']; ?></h3>
+							<p>Positions</p>
+						</div>
+
+					</div>
 				</div>
 			</div>
 
 			<!-- companies count -->
-			<div class="card">
+			<div class="card card-summary">
 				<div class="card-body">
-					<h3><i class='bx bx-buildings'></i> <?php echo $data['companiesCount']; ?></h3>
-					<p>Companies</p>
+					<div class="row">
+						<div class="col-3">
+							<i class='bx bx-buildings'></i>
+						</div>
+						<div class="col-9">
+							<h3><?php echo $data['companiesCount']; ?></h3>
+							<p>Companies</p>
+						</div>
+					</div>
 				</div>
 			</div>
 
 			<!-- recent date -->
-			<div class="card">
+			<div class="card card-summary">
 				<div class="card-body">
-					<h3><i class='bx bx-calendar-event'></i> <?php echo $data['recentDate']; ?></h3>
-					<p>Last application</p>
+					<div class="row">
+						<div class="col-3">
+							<i class='bx bx-calendar-event'></i>
+						</div>
+						<div class="col-9">
+							<h5><?php echo $data['recentDate']; ?></h5>
+							<p>Last application</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -56,7 +78,7 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 					<div class="card-body">
 						<table class="table table-sm">
 							<tbody>
-                <?php
+								<?php
                 $topCompanies = getTopCompanyCount();
                 while ($company = $topCompanies->fetch(PDO::FETCH_ASSOC)) {
                   $id = $company['id'];
@@ -80,15 +102,13 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 
 	</div>
 
-  <script>
+	<script>
+		$(document).ready(function() {
 
-  $(document).ready(function() {
+			$("#home-navbar-link").addClass('selected');
 
-    $("#home-navbar-link").addClass('selected');
-
-  });
-
-  </script>
+		});
+	</script>
 
 
 
