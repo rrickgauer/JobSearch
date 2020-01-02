@@ -30,7 +30,7 @@ $counter = 0;
         <h4 class=\"card-title\">$companyName</h4>
       </div>
       <div class=\"card-body\">
-        <p class=\"card-text\"><span class=\"badge badge-warning outer\">Postions <span class=\"badge badge-pill badge-info\"> $count</span></span></p>
+        <p class=\"card-text\"><span class=\"badge badge-secondary outer\">Postions <span class=\"badge badge-pill badge-info\"> $count</span></span></p>
         <p class=\"card-date\"><span class=\"badge badge-primary outer\">Activity <span class=\"badge badge-pill badge-light\"> $date</span></span></p>
       </div>
       <div class=\"card-footer\">
