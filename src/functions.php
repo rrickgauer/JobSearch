@@ -279,6 +279,13 @@ function insertQuestion($question, $answer) {
   return $sql->execute();
 }
 
+function getQuestions() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT * FROM Questions ORDER BY question asc');
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
