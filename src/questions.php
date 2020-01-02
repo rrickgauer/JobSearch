@@ -72,9 +72,9 @@ $questions = getQuestions();
       <div class="col-md-6">
         <h2>New Question</h2>
         <form class="form" method="post">
-          <input type="text" name="question" class="form-control" placeholder="Question">
-          <textarea name="answer" rows="12" class="form-control" placeholder="Answer"></textarea>
-          <input type="submit" value="Submit" class="btn btn-primary">
+          <input id="questionInput" type="text" name="question" class="form-control" placeholder="Question" onkeyup="isBlank()">
+          <textarea id="textAreaInput" name="answer" rows="12" class="form-control" placeholder="Answer" onkeyup="isBlank()"></textarea>
+          <input id="submitButton" type="submit" value="Submit" class="btn btn-primary" disabled>
         </form>
       </div>
 
@@ -83,6 +83,18 @@ $questions = getQuestions();
 
 
   </div>
+
+  <script>
+
+  function isBlank() {
+    if(document.getElementById("questionInput").value==="" || document.getElementById("textAreaInput").value==="") {
+         document.getElementById('submitButton').disabled = true;
+     } else {
+         document.getElementById('submitButton').disabled = false;
+     }
+  }
+
+  </script>
 
 </body>
 
