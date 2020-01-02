@@ -83,3 +83,7 @@ form label {
 .navbar {
   background-color: #f0cf61;
 }
+
+.card-home .card-header {
+  background-color: #f0cf61;
+}

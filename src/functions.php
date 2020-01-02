@@ -305,6 +305,13 @@ function getHomePageData() {
   return $sql;
 }
 
+function getTopCompanyCount() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('select Companies.id, Companies.name, count(Positions.id) as count from Companies, Positions where Companies.id=Positions.company_id GROUP by Companies.id ORDER by count desc limit 5');
+  $sql->execute();
+  return $sql;
+}
+
 
 
 

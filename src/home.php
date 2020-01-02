@@ -19,7 +19,7 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 
 		<div class="card-deck">
 
-      <!-- positions count -->
+			<!-- positions count -->
 			<div class="card">
 				<div class="card-body">
 					<h3><i class='bx bx-detail'></i> <?php echo $data['positionsCount']; ?></h3>
@@ -27,7 +27,7 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 				</div>
 			</div>
 
-      <!-- companies count -->
+			<!-- companies count -->
 			<div class="card">
 				<div class="card-body">
 					<h3><i class='bx bx-buildings'></i> <?php echo $data['companiesCount']; ?></h3>
@@ -35,15 +35,43 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 				</div>
 			</div>
 
-      <!-- recent date -->
+			<!-- recent date -->
 			<div class="card">
 				<div class="card-body">
 					<h3><i class='bx bx-calendar-event'></i> <?php echo $data['recentDate']; ?></h3>
 					<p>Last application</p>
 				</div>
 			</div>
+		</div>
 
+		<div class="row">
+			<div class="col-md-4">
 
+				<div class="card card-home">
+
+					<div class="card-header">
+						<h3>Top companies</h3>
+					</div>
+
+					<div class="card-body">
+						<table class="table table-sm">
+							<tbody>
+                <?php
+                $topCompanies = getTopCompanyCount();
+                while ($company = $topCompanies->fetch(PDO::FETCH_ASSOC)) {
+                  echo '<tr>';
+                  echo '<td>' . $company['name'] . '</td>';
+                  echo '<td><span class="badge badge-secondary">' . $company['count'] . '</span></td>';
+                  echo '</tr>';
+                }
+                ?>
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+
+			</div>
 
 		</div>
 
