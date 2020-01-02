@@ -30,6 +30,8 @@
 <link rel="stylesheet" href="css/bootstrap-table.css" />
 <script src="js/bootstrap-table.js"></script>
 
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap" rel="stylesheet">
 
 <!-- personal css -->
 <link rel="stylesheet" href="css/style.css" />

@@ -15,7 +15,7 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
 <body>
 	<?php include('navbar.php'); ?>
 	<div class="container">
-		<h1>Home</h1>
+		<h1 class="custom-font">Job Search</h1>
 
 		<div class="card-deck">
 

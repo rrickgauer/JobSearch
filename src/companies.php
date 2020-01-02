@@ -11,7 +11,7 @@
 <body>
   <?php include('navbar.php'); ?>
   <div class="container">
-    <h1>Companies</h1>
+    <h1 class="custom-font">Companies</h1>
 
     <div class="input-group input-group-lg">
       <input id="searchInput" type="text" class="form-control" placeholder="Search" autofocus>

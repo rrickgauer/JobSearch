@@ -12,7 +12,7 @@
 
   <div class="container">
 
-    <h1>Positions</h1>
+    <h1 class="custom-font">Positions</h1>
 
     <button type="button" name="button" onclick="enableCardView()" class="btn btn-primary">Card View</button>
     <a href="add-position-page.php" class="btn btn-primary">New Position</a>
