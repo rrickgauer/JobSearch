@@ -64,4 +64,17 @@ form label {
   padding: 5px;
 }
 
-.clear-btn {}
+#dropdownMenuButton {
+  margin-bottom: 10px;
+}
+
+#questionSearchInput {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#questionInput,
+#textAreaInput {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
