@@ -49,7 +49,7 @@ $questions = getQuestions();
         while ($question = $questions->fetch(PDO::FETCH_ASSOC)) {
           echo '<tr>';
           echo '<td>' . $question['question'] . '</td>';
-          echo '<td><textarea class="form-control" rows="5">' . $question['answer'] . '</textarea></td>';
+          echo '<td><textarea class="form-control" rows="5" readonly>' . $question['answer'] . '</textarea></td>';
           echo '</tr>';
         }
         ?>
