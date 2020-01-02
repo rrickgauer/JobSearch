@@ -59,8 +59,11 @@ $data = $data->fetch(PDO::FETCH_ASSOC);
                 <?php
                 $topCompanies = getTopCompanyCount();
                 while ($company = $topCompanies->fetch(PDO::FETCH_ASSOC)) {
+                  $id = $company['id'];
+                  $name = $company['name'];
+                  $count = $company['count'];
                   echo '<tr>';
-                  echo '<td>' . $company['name'] . '</td>';
+                  echo "<td><a href=\"company.php?companyID=$id\">$name</a></td>";
                   echo '<td><span class="badge badge-secondary">' . $company['count'] . '</span></td>';
                   echo '</tr>';
                 }
