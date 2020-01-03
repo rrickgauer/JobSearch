@@ -27,7 +27,7 @@ $questions = getQuestions();
 
 		<h1 class="custom-font">Questions</h1>
 
-    <div class="input-group mb-3">
+    <div class="input-group input-group-lg">
       <input id="questionSearchInput" type="text" class="form-control" placeholder="Search">
 
       <div class="input-group-append">
