@@ -124,3 +124,7 @@ h1.custom-font {
   text-align: center;
   margin-bottom: 30px
 }
+
+#position-cards .card-body {
+  background-color: #f0cf61;
+}

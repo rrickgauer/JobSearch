@@ -47,8 +47,7 @@
 					echo '<div class="card">';
 					echo '<div class="card-body">';
 					echo '<h3>' . $position['title'] . '</h3>';
-					echo '<p>' . $position['company_name'] . '</p>';
-					echo '<p><span class="badge badge-primary">' . $position['date_applied'] . '</span></p>';
+					echo '<p><span class="badge badge-secondary">' . $position['company_name'] . '</span>' . ' <span class="badge badge-light">' . $position['date_applied'] . '</span></p>';
 					echo '</div>';
 					echo '</div>';
 					$count++;
