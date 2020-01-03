@@ -149,3 +149,7 @@ h1.custom-font {
 .custom-table {
   margin-top: 20px;
 }
+
+.card-question .card-header {
+  background-color: #f0cf61;
+}

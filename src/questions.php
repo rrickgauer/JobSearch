@@ -39,26 +39,13 @@ $questions = getQuestions();
 
     </div>
 
-		<table class="table table-sm table-striped">
-			<thead>
-				<tr>
-					<th>Question</th>
-					<th>Answer</th>
-				</tr>
-			</thead>
 
-			<tbody id="questionTable">
-				<?php
+    <div id="question-cards">
+    </div>
 
-        while ($question = $questions->fetch(PDO::FETCH_ASSOC)) {
-          echo '<tr>';
-          echo '<td>' . $question['question'] . '</td>';
-          echo '<td><textarea class="form-control" rows="5" readonly>' . $question['answer'] . '</textarea></td>';
-          echo '</tr>';
-        }
-        ?>
-			</tbody>
-		</table>
+
+
+
 
 
 	</div>
@@ -88,6 +75,8 @@ $questions = getQuestions();
 		$(document).ready(function() {
 			$("#questions-navbar-link").addClass('selected');
 
+      updateQuestionTable('');
+
 			$('#questionSearchInput').on('keyup', function() {
 				updateQuestionTable($('#questionSearchInput').val());
 			});
@@ -106,7 +95,7 @@ $questions = getQuestions();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					var e = this.responseText;
-					$("#questionTable").html(e);
+					$("#question-cards").html(e);
 				}
 			};
 
