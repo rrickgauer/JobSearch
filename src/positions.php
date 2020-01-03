@@ -14,9 +14,12 @@
 
 		<h1 class="custom-font">Positions</h1>
 
-
 		<div class="input-group input-group-lg">
+
+			<!-- position search input -->
 			<input type="text" class="form-control" placeholder="Search" autofocus id="position-search-input">
+
+			<!-- dropdown menu -->
 			<div class="input-group-append">
 				<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></button>
 				<div class="dropdown-menu">
@@ -26,21 +29,25 @@
 					<a class="dropdown-item"><i class='bx bxs-collection'></i> Card view</a>
 				</div>
 			</div>
+
 		</div>
 
+		<!-- see get-positions.php -->
 		<div id="position-cards">
-
-
 		</div>
 
 	</div>
 
 	<script>
 		$(document).ready(function() {
+
+			// set the positions navbar page to active
 			$("#positions-navbar-link").addClass('selected');
 
+			// search for all positions
 			searchPositions('');
 
+			// search for positions when user enters text into search input
 			$("#position-search-input").on('keyup', function() {
 				var query = $("#position-search-input").val();
 				searchPositions(query);
@@ -48,7 +55,6 @@
 		});
 
 		function searchPositions(query) {
-
 			var xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
@@ -56,10 +62,16 @@
 					$("#position-cards").html(e);
 				}
 			};
+
 			var link = 'get-positions.php?query=' + query;
 			xhttp.open("GET", link, true);
 			xhttp.send();
 		}
+
+		function gotoPositionPage(positionID) {
+			window.location.href = 'position.php?positionID=' + positionID;
+		}
+
 	</script>
 </body>
 
