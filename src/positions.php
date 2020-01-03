@@ -38,6 +38,14 @@
 
 		</div>
 
+		<br><br>
+		<button type="button" name="button" id="sort-btn" class="btn btn-primary" onclick="sortCards()">Sort</button>
+		<br><br>
+
+
+
+
+
 		<!-- see get-positions.php -->
 		<div id="position-cards">
 
@@ -47,8 +55,7 @@
 	</div>
 
 	<script>
-
-	var displayView = 'card';
+		var displayView = 'card';
 
 		$(document).ready(function() {
 
@@ -92,6 +99,27 @@
 			displayView = type;
 			searchPositions($("#position-search-input").val());
 		}
+
+
+		function sortCards() {
+
+			var cards = $(".position-card");
+
+			for (var i = cards.length - 1; i >= 0; i--) {
+        for (var j = 1; j <= i; j++) {
+
+          if (cards[j-1].getElementsByClassName('position-card-title')[0].innerText.toLowerCase() > cards[j].getElementsByClassName('position-card-title')[0].innerText.toLowerCase())
+          {
+            var temp = cards[j-1];
+            cards[j-1] = cards[j];
+            cards[j] = temp;
+          }
+        }
+			}
+		}
+
+
+
 
 	</script>
 </body>
