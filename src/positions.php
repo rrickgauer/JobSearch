@@ -25,8 +25,8 @@
 				<div class="dropdown-menu">
 					<a href="add-position-page.php" class="dropdown-item"><i class='bx bx-plus'></i> New</a>
 					<div role="separator" class="dropdown-divider"></div>
-					<a class="dropdown-item"><i class='bx bx-table'></i> Table view</a>
-					<a class="dropdown-item"><i class='bx bxs-collection'></i> Card view</a>
+					<a class="dropdown-item" onclick="setView('table')"><i class='bx bx-table'></i> Table view</a>
+					<a class="dropdown-item" onclick="setView('card')"><i class='bx bxs-collection'></i> Card view</a>
 				</div>
 			</div>
 
@@ -34,11 +34,16 @@
 
 		<!-- see get-positions.php -->
 		<div id="position-cards">
+
+
 		</div>
 
 	</div>
 
 	<script>
+
+	var displayView = 'card';
+
 		$(document).ready(function() {
 
 			// set the positions navbar page to active
@@ -63,13 +68,18 @@
 				}
 			};
 
-			var link = 'get-positions.php?query=' + query;
+			var link = 'get-positions.php?query=' + query + '&display=' + displayView;
 			xhttp.open("GET", link, true);
 			xhttp.send();
 		}
 
 		function gotoPositionPage(positionID) {
 			window.location.href = 'position.php?positionID=' + positionID;
+		}
+
+		function setView(type) {
+			displayView = type;
+			searchPositions($("#position-search-input").val());
 		}
 
 	</script>
