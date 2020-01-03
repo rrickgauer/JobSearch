@@ -128,3 +128,7 @@ h1.custom-font {
 #position-cards .card-body {
   background-color: #f0cf61;
 }
+
+#position-cards .card:hover {
+  cursor: pointer;
+}
