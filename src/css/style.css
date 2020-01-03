@@ -138,12 +138,12 @@ h1.custom-font {
 }
 
 .dropdown-item:hover {
-  background-color: #e6e6e6;
+  background-color: #f2f2f2;
   cursor: pointer;
 }
 
 .dropdown-item.active {
-  background-color: #e6e6e6;
+  background-color: #f2f2f2;
 }
 
 .custom-table {

@@ -25,8 +25,14 @@
 				<div class="dropdown-menu">
 					<a href="add-position-page.php" class="dropdown-item"><i class='bx bx-plus'></i> New</a>
 					<div role="separator" class="dropdown-divider"></div>
+					<h6 class="dropdown-header">View</h6>
 					<a class="dropdown-item view-select" onclick="setView('table')"><i class='bx bx-table'></i> Table view</a>
 					<a class="dropdown-item view-select active" onclick="setView('card')"><i class='bx bxs-collection'></i> Card view</a>
+					<div role="separator" class="dropdown-divider"></div>
+					<h6 class="dropdown-header">Sorting</h6>
+					<a class="dropdown-item active"><i class='bx bx-sort'></i> Most recent</a>
+					<a class="dropdown-item"><i class='bx bx-sort-a-z'></i> A to Z</a>
+
 				</div>
 			</div>
 
