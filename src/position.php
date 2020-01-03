@@ -221,6 +221,9 @@ if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
   <script>
     $(document).ready(function() {
 
+			// set the positions navbar page to active
+			$("#positions-navbar-link").addClass('selected');
+
       // set the company select input to select2
       $("#company").select2({
         tags: true,

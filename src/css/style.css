@@ -145,3 +145,7 @@ h1.custom-font {
 .dropdown-item.active {
   background-color: #e6e6e6;
 }
+
+.custom-table {
+  margin-top: 20px;
+}

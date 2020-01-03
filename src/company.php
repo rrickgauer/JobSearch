@@ -50,9 +50,16 @@
   </div>
 
   <script>
+
+  $(document).ready(function() {
+    // set the companies navbar page to active
+    $("#companies-navbar-link").addClass('selected');
+
     $("table").bootstrapTable({
       classes: 'table table-striped table-sm',
     });
+  });
+
   </script>
 </body>
 

@@ -40,7 +40,7 @@ function printCards($positions) {
 }
 
 function printTable($positions) {
-	echo '<table class="table table-sm">
+	echo '<table class="table table-sm custom-table">
 		<thead>
 			<tr>
 				<th>Position</th>
