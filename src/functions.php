@@ -322,7 +322,7 @@ function getAllPositions() {
 function getPositionsFromQuery($query) {
   $pdo = dbConnect();
 
-  $sql = $pdo->prepare('select Positions.id, Positions.title, Positions.company_id, date_format(Positions.date_applied, "%m-%d-%Y") as date_applied, Companies.name as company_name from Positions left join Companies on Positions.company_id=Companies.id WHERE Positions.title like :query group by Positions.id ORDER BY `date_applied` DESC');
+  $sql = $pdo->prepare('select Positions.id, Positions.title, Positions.company_id, date_format(Positions.date_applied, "%m-%d-%Y") as date_applied, Positions.date_applied as date_applied_sort, Companies.name as company_name from Positions left join Companies on Positions.company_id=Companies.id WHERE Positions.title like :query group by Positions.id ORDER BY `date_applied_sort` DESC');
 
   $query = "$query%";
   $query = filter_var($query, FILTER_SANITIZE_STRING);
@@ -330,13 +330,4 @@ function getPositionsFromQuery($query) {
   $sql->execute();
   return $sql;
 }
-
-
-
-
-
-
-
-
-
 ?>
