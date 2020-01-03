@@ -312,6 +312,13 @@ function getTopCompanyCount() {
   return $sql;
 }
 
+function getAllPositions() {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('select Positions.id, Positions.title, date_format(Positions.date_applied, "%m-%d-%Y") as date_applied, Companies.name as company_name from Positions left join Companies on Positions.company_id=Companies.id group by Positions.id  ORDER BY `date_applied` DESC');
+  $sql->execute();
+  return $sql;
+}
+
 
 
 
