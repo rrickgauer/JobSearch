@@ -1,15 +1,11 @@
-<?php include('functions.php'); ?>
-
 <?php
+include('functions.php');
 
 if (isset($_POST['question']) && isset($_POST['answer'])) {
   insertQuestion($_POST['question'], $_POST['answer']);
 }
 
 $questions = getQuestions();
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -39,14 +35,8 @@ $questions = getQuestions();
 
     </div>
 
-
-    <div id="question-cards">
-    </div>
-
-
-
-
-
+    <!-- get-questions.php -->
+    <div id="question-cards"></div>
 
 	</div>
 
