@@ -286,11 +286,18 @@ function getQuestions() {
   return $sql;
 }
 
+function getQuestion($id) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('SELECT * FROM Questions WHERE id=:id LIMIT 1');
+  $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+  $sql->bindParam(':id', $id, PDO::PARAM_INT);
+  $sql->execute();
+  return $sql;
+}
+
 function searchQuestions($query) {
   $pdo = dbConnect();
-
   $sql = $pdo->prepare('SELECT * FROM Questions WHERE question LIKE :query ORDER BY Question ASC');
-
   $query = "%$query%";
   $query = filter_var($query, FILTER_SANITIZE_STRING);
   $sql->bindValue(':query', $query, PDO::PARAM_STR);
