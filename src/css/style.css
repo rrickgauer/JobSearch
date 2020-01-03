@@ -1,155 +1,135 @@
 body {
-  padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 form label {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .card {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 #company-cards .card-header {
-  border: none;
-  margin: 0;
-  padding-bottom: 0;
-  margin-right: 5px;
+	border: none;
+	margin: 0;
+	padding-bottom: 0;
+	margin-right: 5px;
 }
 
 #company-cards .card-footer {
-  border: none;
+	border: none;
 }
 
 #company-cards .card-body {
-  padding: 10px;
+	padding: 10px;
 }
 
 #company-cards .card-body * {
-  display: inline;
+	display: inline;
 }
 
 #company-cards .card-body .outer {
-  margin: 5px;
+	margin: 5px;
 }
 
 #company-cards .card-header,
 #company-cards .card-body,
 #company-cards .card-footer {
-  background-color: inherit;
-}
-
-#company-cards .card {
-  background-color: #f0cf61;
+	background-color: inherit;
 }
 
 #company-cards .card:hover {
-  cursor: pointer;
-  transform: scale(1.05)
+	cursor: pointer;
+	transform: scale(1.05)
 }
 
 .custom-container {
-  border: 1px solid black;
-  padding: 0;
+	border: 1px solid black;
+	padding: 0;
 }
 
 .custom-container input,
 .custom-container .clear-btn {
-  display: inline-block;
+	display: inline-block;
 }
 
 .custom {
-  border: none;
-  width: 95%;
-  padding: 5px;
+	border: none;
+	width: 95%;
+	padding: 5px;
 }
 
 #dropdownMenuButton {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
-
-
 
 #questionInput,
 #textAreaInput {
-  margin-top: 10px;
-  margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
-.modal-header,
-.navbar {
-  background-color: #f0cf61;
-}
-
-.card-home .card-header {
-  background-color: #f0cf61;
-}
-
-#top-navbar {
-  background-color: #f0cf61;
-}
-
-#top-navbar .nav-item:hover {
-  background-color: #f8eab9;
-}
-
+#top-navbar .nav-item:hover,
 #top-navbar .selected {
-  background-color: #f8eab9;
+	background-color: #f8eab9;
 }
 
 #top-navbar .nav-link {
-  color: black;
-  font-weight: bold;
+	color: black;
+	font-weight: bold;
 }
 
 .card-summary i {
-  font-size: 56px;
+	font-size: 56px;
 }
 
 .card-summary p {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
-.card-summary .card-body{
-  color: #f0cf61;
-  background-color: black;
+.card-summary .card-body {
+	color: #f0cf61;
+	background-color: black;
 }
 
 .custom-font {
-  font-family: 'Permanent Marker', cursive;
+	font-family: 'Permanent Marker', cursive;
 }
 
 h1.custom-font {
-  font-size: 80px;
-  text-align: center;
-  margin-bottom: 30px
-}
-
-#position-cards .card-body {
-  background-color: #f0cf61;
+	font-size: 80px;
+	text-align: center;
+	margin-bottom: 30px
 }
 
 #position-cards .card:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .dropdown-item:active {
-  background-color: inherit;
+	background-color: inherit;
 }
 
 .dropdown-item:hover {
-  background-color: #f2f2f2;
-  cursor: pointer;
+	background-color: #f2f2f2;
+	cursor: pointer;
 }
 
 .dropdown-item.active {
-  background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
 
 .custom-table {
-  margin-top: 20px;
+	margin-top: 20px;
 }
 
-.card-question .card-header {
-  background-color: #f0cf61;
+.card-question .card-header,
+#company-cards .card,
+.modal-header,
+.navbar,
+.card-home .card-header,
+#top-navbar,
+#position-cards .card-body {
+	background-color: #f0cf61;
 }
