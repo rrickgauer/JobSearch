@@ -25,8 +25,8 @@
 				<div class="dropdown-menu">
 					<a href="add-position-page.php" class="dropdown-item"><i class='bx bx-plus'></i> New</a>
 					<div role="separator" class="dropdown-divider"></div>
-					<a class="dropdown-item" onclick="setView('table')"><i class='bx bx-table'></i> Table view</a>
-					<a class="dropdown-item" onclick="setView('card')"><i class='bx bxs-collection'></i> Card view</a>
+					<a class="dropdown-item view-select" onclick="setView('table')"><i class='bx bx-table'></i> Table view</a>
+					<a class="dropdown-item view-select active" onclick="setView('card')"><i class='bx bxs-collection'></i> Card view</a>
 				</div>
 			</div>
 
@@ -48,6 +48,11 @@
 
 			// set the positions navbar page to active
 			$("#positions-navbar-link").addClass('selected');
+
+			// set the new dropdown view selector to active
+			$(".view-select").click(function() {
+				$(".view-select").toggleClass('active');
+			});
 
 			// search for all positions
 			searchPositions('');

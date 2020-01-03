@@ -132,3 +132,16 @@ h1.custom-font {
 #position-cards .card:hover {
   cursor: pointer;
 }
+
+.dropdown-item:active {
+  background-color: inherit;
+}
+
+.dropdown-item:hover {
+  background-color: #e6e6e6;
+  cursor: pointer;
+}
+
+.dropdown-item.active {
+  background-color: #e6e6e6;
+}
