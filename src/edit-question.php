@@ -1,5 +1,12 @@
 <?php
 include('functions.php');
+
+if (isset($_POST['question']) && isset($_POST['answer'])) {
+  updateQuestion($_GET['questionID'], $_POST['question'], $_POST['answer']);
+  header('Location: questions.php');
+  exit;
+}
+
 $question = getQuestion($_GET['questionID']);
 $question = $question->fetch(PDO::FETCH_ASSOC);
 ?>

@@ -305,6 +305,20 @@ function searchQuestions($query) {
   return $sql;
 }
 
+function updateQuestion($id, $question, $answer) {
+  $pdo = dbConnect();
+  $sql = $pdo->prepare('UPDATE Questions SET question=:question, answer=:answer WHERE id=:id');
+  $id = filter_var($id, FILTER_SANITIZE_NUMBER_INT);
+  $question = filter_var($question, FILTER_SANITIZE_STRING);
+  $answer = filter_var($answer, FILTER_SANITIZE_STRING);
+  $sql->bindParam(':id', $id, PDO::PARAM_INT);
+  $sql->bindParam(':question', $question, PDO::PARAM_STR);
+  $sql->bindParam(':answer', $answer, PDO::PARAM_STR);
+  $sql->execute();
+  $sql = null;
+  $pdo = null;
+}
+
 function getHomePageData() {
   $pdo = dbConnect();
   $sql = $pdo->prepare('SELECT * FROM View_HomePage');
