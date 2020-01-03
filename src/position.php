@@ -3,7 +3,7 @@
 <?php
 
 // go to home.php if get[positionID] is not set
-if (!isset($_GET['positionID']) || !doesPositionExist($_GET['positionID'])) {
+if (!isset($_GET['1']) || !doesPositionExist($_GET['positionID'])) {
 	header('Location: home.php');
 	exit;
 } else {
