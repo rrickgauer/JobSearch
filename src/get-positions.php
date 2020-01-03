@@ -1,6 +1,12 @@
 <?php
 include_once('functions.php');
-$positions = getPositionsFromQuery($_GET['query']);
+
+if (isset($_GET['sort']) && $_GET['sort'] == 'title') {
+  $positions = getPositionsFromQuerySortByTitle($_GET['query']);
+} else {
+  $positions = getPositionsFromQuery($_GET['query']);
+}
+
 
 if (isset($_GET['display']) && $_GET['display'] == 'table') {
 	printTable($positions);

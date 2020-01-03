@@ -30,17 +30,13 @@
 					<a class="dropdown-item view-select active" onclick="setView('card')"><i class='bx bxs-collection'></i> Card view</a>
 					<div role="separator" class="dropdown-divider"></div>
 					<h6 class="dropdown-header">Sorting</h6>
-					<a class="dropdown-item active"><i class='bx bx-sort'></i> Most recent</a>
-					<a class="dropdown-item"><i class='bx bx-sort-a-z'></i> A to Z</a>
+					<a class="dropdown-item sort-select active" onclick="setSort('date')"><i class='bx bx-sort'></i> Most recent</a>
+					<a class="dropdown-item sort-select" onclick="setSort('title')"><i class='bx bx-sort-a-z'></i> A to Z</a>
 
 				</div>
 			</div>
 
 		</div>
-
-		<br><br>
-		<button type="button" name="button" id="sort-btn" class="btn btn-primary" onclick="sortCards()">Sort</button>
-		<br><br>
 
 
 
@@ -56,6 +52,7 @@
 
 	<script>
 		var displayView = 'card';
+    var sortType = 'date';
 
 		$(document).ready(function() {
 
@@ -66,6 +63,13 @@
 			$(".view-select").click(function() {
 				$(".view-select").toggleClass('active');
 			});
+
+      // set the new dropdown sort selector to active
+      $(".sort-select").click(function() {
+        $(".sort-select").toggleClass('active');
+      });
+
+
 
 			// search for all positions
 			searchPositions('');
@@ -86,7 +90,7 @@
 				}
 			};
 
-			var link = 'get-positions.php?query=' + query + '&display=' + displayView;
+			var link = 'get-positions.php?query=' + query + '&display=' + displayView + '&sort=' + sortType;
 			xhttp.open("GET", link, true);
 			xhttp.send();
 		}
@@ -99,7 +103,6 @@
 			displayView = type;
 			searchPositions($("#position-search-input").val());
 		}
-
 
 		function sortCards() {
 
@@ -118,6 +121,10 @@
 			}
 		}
 
+    function setSort(type) {
+      sortType = type;
+      searchPositions($("#position-search-input").val());
+    }
 
 
 
