@@ -16,7 +16,7 @@
 
 
 		<div class="input-group input-group-lg">
-			<input type="text" class="form-control" placeholder="Search" autofocus>
+			<input type="text" class="form-control" placeholder="Search" autofocus id="position-search-input">
 			<div class="input-group-append">
 				<button class="btn btn-outline-secondary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class='bx bx-dots-horizontal-rounded'></i></button>
 				<div class="dropdown-menu">
@@ -30,30 +30,7 @@
 
 		<div id="position-cards">
 
-			<div class="card-deck">
 
-				<?php
-
-				$count = 0;
-
-				$positions = getAllPositions();
-
-				while ($position = $positions->fetch(PDO::FETCH_ASSOC)) {
-					if ($count == 3) {
-						echo '</div><div class="card-deck">';
-						$count = 0;
-					}
-
-					echo '<div class="card">';
-					echo '<div class="card-body">';
-					echo '<h3>' . $position['title'] . '</h3>';
-					echo '<p><span class="badge badge-secondary">' . $position['company_name'] . '</span>' . ' <span class="badge badge-light">' . $position['date_applied'] . '</span></p>';
-					echo '</div>';
-					echo '</div>';
-					$count++;
-				}
-				?>
-			</div>
 		</div>
 
 	</div>
@@ -61,7 +38,28 @@
 	<script>
 		$(document).ready(function() {
 			$("#positions-navbar-link").addClass('selected');
+
+			searchPositions('');
+
+			$("#position-search-input").on('keyup', function() {
+				var query = $("#position-search-input").val();
+				searchPositions(query);
+			});
 		});
+
+		function searchPositions(query) {
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var e = this.responseText;
+					$("#position-cards").html(e);
+				}
+			};
+			var link = 'get-positions.php?query=' + query;
+			xhttp.open("GET", link, true);
+			xhttp.send();
+		}
 	</script>
 </body>
 
